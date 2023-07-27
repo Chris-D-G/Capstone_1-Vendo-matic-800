@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public abstract class VendingMachineItem {
+public abstract class VendingMachineItem implements Sound {
     private String name;
     private double price;
     private int quantity;
@@ -31,5 +31,11 @@ public abstract class VendingMachineItem {
                 ", price=" + price +
                 ", quantity=" + quantity +
                 '}';
+    }
+
+
+    @Override
+    public String vendingSound() {
+        return "no sound";
     }
 }
