@@ -26,11 +26,7 @@ public abstract class VendingMachineItem implements Sound {
 
     @Override
     public String toString() {
-        return "VendingMachineItem{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                '}';
+        return "Item: " + name + " | Current Price: " + price +" | Current quantity: " + quantity;
     }
 
 

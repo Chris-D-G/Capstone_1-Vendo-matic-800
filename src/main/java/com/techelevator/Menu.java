@@ -35,6 +35,10 @@ public class Menu {
         } else {
             return "Exit";
         }
-
     }
+
+    //ToDO add getUserInputPurchaseMenu
+
+
+
 }

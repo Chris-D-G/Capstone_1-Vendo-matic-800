@@ -8,7 +8,9 @@ public class TEST {
         FileReader test = new FileReader();
         Map<String,VendingMachineItem> testMap = test.makeItemMap();
 //        System.out.println(testMap);
-        System.out.println("Item Name: "+testMap.get("A1").getName() + " , Item Price: "+testMap.get("A1").getPrice() );
+//        System.out.println("Item Name: "+testMap.get("A1").getName() + " , Item Price: "+testMap.get("A1").getPrice() );
+        System.out.println(testMap.get("B2").toString());
+
 
 
 
