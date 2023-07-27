@@ -32,4 +32,6 @@ public abstract class VendingMachineItem {
                 ", quantity=" + quantity +
                 '}';
     }
+
+    public abstract String vendingSound();
 }
