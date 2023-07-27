@@ -9,22 +9,25 @@ public class Menu {
     public void mainMenu() {
         System.out.println("(1) Display Vending Machine Items");
         System.out.println("(2) Purchase");
-        System.out.println(" (3) Exit");
+        System.out.println("(3) Exit");
+        System.out.println();
+        System.out.print("Please make a selection: ");
 
     }
     public void purchaseMenu () {
-        System.out.println(" Current money provided: $ ");
+        System.out.println("Current money provided: $ ");
        System.out.println();
         System.out.println("(1) Feed Money");
         System.out.println("(2) Select Product");
-        System.out.println(" (3) Finish Transaction");
-
+        System.out.println("(3) Finish Transaction");
+        System.out.println();
+        System.out.print("Please make a selection: ");
     }
     public String getUserInputMainMenu () {
         Scanner userInput = new Scanner(System.in);
-        String choice = userInput.nextLine();
+        String choice = userInput.nextLine().trim();
 
-        if (choice.equals( "1"  ) ) {
+        if (choice.equals("1") ) {
             return MAIN_MENU_OPTION_DISPLAY_ITEMS;
         } else if (choice.equals("2")) {
             return MAIN_MENU_OPTION_PURCHASE;

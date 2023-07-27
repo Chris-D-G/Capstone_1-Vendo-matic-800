@@ -27,6 +27,7 @@ public class VendingMachineCLI {
 
 	public void run() {
 		while (true) {
+
 			menu.mainMenu();
 
 
@@ -35,10 +36,12 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
-				System.out.println( " Testing option one");
+				System.out.println( "Testing option one");
+
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				System.out.println(" Testing option two" );
-				// do purchase
+				menu.purchaseMenu();
+
 			}
 			else{
 				break;
