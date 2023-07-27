@@ -1,23 +1,14 @@
 package com.techelevator;
 
+import java.util.Map;
+
 public class TEST {
 
     public static void main(String[] args) {
-        Drink pepsi = new Drink( "pepsi", 2.00);
-        System.out.println(pepsi.getQuantity());
-        System.out.println(pepsi.toString());
-        System.out.println(pepsi.vendingSound());
-
-
-
-
-
-
-
-
-
-
-
+        FileReader test = new FileReader();
+        Map<String,VendingMachineItem> testMap = test.makeItemMap();
+//        System.out.println(testMap);
+        System.out.println("Item Name: "+testMap.get("A1").getName() + " , Item Price: "+testMap.get("A1").getPrice() );
 
 
 
