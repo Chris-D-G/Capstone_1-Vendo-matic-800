@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.util.Scanner;
+
 public class MoneyController {
 
     private double wallet = 0.00;
@@ -15,11 +17,11 @@ public class MoneyController {
 
     //ToDO method to add money
     public double addMoney(String userInput) {
+        Scanner userInput = new Scanner( System.in);
+        double 
 
 
-
-
-
+        double dollarAmount = userInput.
 
 
 
