@@ -5,8 +5,11 @@ import java.util.Scanner;
 public class Menu {
     private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
     private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
+    private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
+    private final Scanner userInput = new Scanner(System.in);
 
     public void mainMenu() {
+        System.out.println();
         System.out.println("(1) Display Vending Machine Items");
         System.out.println("(2) Purchase");
         System.out.println("(3) Exit");
@@ -15,6 +18,7 @@ public class Menu {
 
     }
     public void purchaseMenu () {
+        System.out.println();
         System.out.println("Current money provided: $ ");
        System.out.println();
         System.out.println("(1) Feed Money");
@@ -24,7 +28,6 @@ public class Menu {
         System.out.print("Please make a selection: ");
     }
     public String getUserInputMainMenu () {
-        Scanner userInput = new Scanner(System.in);
         String choice = userInput.nextLine().trim();
 
         if (choice.equals("1") ) {
@@ -37,7 +40,18 @@ public class Menu {
         }
     }
 
-    //ToDO add getUserInputPurchaseMenu
+    public String getUserInputPurchaseMenu(){
+        String purchaseChoice = userInput.nextLine().trim();
+
+        if(purchaseChoice.equals("1")){
+            return "REPLACE - purchase 1";
+        }else if(purchaseChoice.equals("2")){
+            return "REPLACE - purchase 2";
+        }else{
+            return "REPLACE - purchase 3";
+        }
+
+    }
 
 
 

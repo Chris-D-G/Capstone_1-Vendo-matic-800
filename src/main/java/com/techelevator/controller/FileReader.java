@@ -13,10 +13,10 @@ public class FileReader {
     private File inputFile;
     Map<String, VendingMachineItem> vendingMachineMap;
 
-    public Map<String,VendingMachineItem> makeItemMap(){
+    public Map<String,VendingMachineItem> makeItemMap(String filename){
         //create an empty map
         vendingMachineMap = new HashMap<>();
-        filepath ="main.csv";
+        filepath =filename;
         // create a file based on the file path
         inputFile = new File(filepath);
         //open a scanner to read the text in the input file
@@ -79,7 +79,7 @@ public class FileReader {
                      String munchyName = items[1];
 
                      //set the munchy price equal to the item in position 2 of the array
-                     Double munchyPrice = Double.parseDouble(items[2]);
+                     double munchyPrice = Double.parseDouble(items[2]);
 
                      // create a new munchy based on the name and price created earlier
                      Munchy crunch = new Munchy(munchyName,munchyPrice);
