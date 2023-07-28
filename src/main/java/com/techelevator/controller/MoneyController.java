@@ -16,27 +16,33 @@ public class MoneyController {
 
 
     //ToDO method to add money
-    public double addMoney(String userInput) {
+    public double addMoney() {
         Scanner userInput = new Scanner( System.in);
-        double 
+        System.out.println(" Insert money");
 
+        double userAmount = userInput.nextDouble();
 
-        double dollarAmount = userInput.
+        double totalAmount = userAmount * DOLLAR;
+        wallet += totalAmount;
 
-
-
-
-
-
-
-
-
-
-
-
-
-        return 0.00;
+        System.out.println("Added money " + totalAmount + " to the wallet.");
     }
+
+    public static void main(String[] args) {
+        MoneyController moneyController = new MoneyController();
+        System.out.println("Current wallet balance: $" + moneyController.getWallet());
+        moneyController.addMoney();
+        System.out.println("Updated wallet balance: $" + moneyController.getWallet());
+    }
+
+
+
+// record user input using the scanner, make sure user only uses numbers
+        // convert user value into int
+        // multiply dollar by converter value
+        // set wallet = new amount
+
+
     //ToDO method to make change
     public void makeChange(){
 
@@ -64,16 +70,6 @@ public class MoneyController {
                 "\n " + dimeCounter + " dimes "+
                 "\n " + nickelCounter + " nickels " +
                 "\n " + " totaling $" +( (QUARTER*quarterCounter)+ (DIME * dimeCounter) + (NICKEL * nickelCounter) ) );
-
-
-
-
-
-
-
-
-
-
 
 
 
