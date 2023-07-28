@@ -45,9 +45,6 @@ public class MoneyController {
         System.out.printf("%.2f", totalAmount  );
         System.out.println(" to the balance");
         System.out.println();
-        System.out.print("Your current balance is $" );
-        System.out.printf("%.2f", getBalance()  );
-        System.out.println();
 
 
     }

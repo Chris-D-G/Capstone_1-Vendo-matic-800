@@ -68,6 +68,7 @@ public class VendingMachineCLI {
 
 					}else{
 						wallet.makeChange();
+						System.out.println();
 						break;
 					}
 				}

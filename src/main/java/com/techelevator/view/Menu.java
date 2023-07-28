@@ -66,7 +66,7 @@ public class Menu {
 
         //use a for each loop to output the vending items
         for(String key: vendingMapKeys){
-            System.out.println(key+ " " +vendingMachineMap.get(key).toString());
+            System.out.println(key + vendingMachineMap.get(key).toString());
 
         }
 
