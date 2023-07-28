@@ -20,9 +20,14 @@ public class MoneyController {
         Scanner userInput = new Scanner( System.in);
         System.out.println(" Insert money");
 
-        double userAmount = userInput.nextDouble();
+        String userAmount = userInput.nextLine().trim();
+        try {
 
-        double totalAmount = userAmount * DOLLAR;
+        }
+
+        int number = Integer.parseInt(userAmount);
+
+        double totalAmount = number * DOLLAR;
         wallet += totalAmount;
 
         System.out.println("Added money " + totalAmount + " to the wallet.");
