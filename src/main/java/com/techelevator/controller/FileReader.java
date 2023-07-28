@@ -1,4 +1,6 @@
-package com.techelevator;
+package com.techelevator.controller;
+
+import com.techelevator.model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,7 +11,7 @@ import java.util.Scanner;
 public class FileReader {
     private String filepath;
     private File inputFile;
-    Map<String,VendingMachineItem> vendingMachineMap;
+    Map<String, VendingMachineItem> vendingMachineMap;
 
     public Map<String,VendingMachineItem> makeItemMap(){
         //create an empty map

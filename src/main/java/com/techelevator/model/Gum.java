@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.model;
 
 public class Gum extends VendingMachineItem{
     public Gum(String name, double price) {

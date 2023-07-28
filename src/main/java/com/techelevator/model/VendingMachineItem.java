@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.model;
 
 public abstract class VendingMachineItem implements Sound {
     private String name;

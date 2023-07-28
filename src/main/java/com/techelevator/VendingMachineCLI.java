@@ -3,7 +3,11 @@ package com.techelevator;
 // Menu is provided to you as a suggested class to handle user input
 // Build out a menu class to start
 
-import java.util.Scanner;
+import com.techelevator.controller.FileReader;
+import com.techelevator.model.VendingMachineItem;
+import com.techelevator.view.Menu;
+
+import java.util.Map;
 
 public class VendingMachineCLI {
 
@@ -26,6 +30,11 @@ public class VendingMachineCLI {
 	}
 
 	public void run() {
+		//initializes the map with the items
+		FileReader fileReader = new FileReader();
+		Map<String, VendingMachineItem> vendingMachineMap = fileReader.makeItemMap();
+
+
 		while (true) {
 
 			menu.mainMenu();

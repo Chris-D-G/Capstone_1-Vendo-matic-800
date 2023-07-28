@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.model;
 
 public class Candy extends VendingMachineItem {
     public Candy(String name, double price) {
