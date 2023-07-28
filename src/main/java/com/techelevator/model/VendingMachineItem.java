@@ -9,7 +9,7 @@ public abstract class VendingMachineItem implements Sound {
     public VendingMachineItem(String name, double price) {
         this.name = name;
         this.price = price;
-        quantity = 5;
+        quantity = 1;
     }
 
     public String getName() {
@@ -22,6 +22,14 @@ public abstract class VendingMachineItem implements Sound {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void reduceQuantity(){
+        if(quantity>0){
+        quantity-=1;
+        } else {
+            System.out.println("ITEM OUT OF STOCK!");
+        }
     }
 
     @Override

@@ -34,7 +34,7 @@ public class Menu {
         System.out.print("Please make a selection: ");
     }
     public String getUserInputMainMenu () {
-        String choice = userInput.nextLine().trim();
+        String choice = getUserInput();
 
         if (choice.equals("1") ) {
             return MAIN_MENU_OPTION_DISPLAY_ITEMS;
@@ -47,7 +47,7 @@ public class Menu {
     }
 
     public String getUserInputPurchaseMenu(){
-        String purchaseChoice = userInput.nextLine().trim();
+        String purchaseChoice = getUserInput();
 
         if(purchaseChoice.equals("1")){
             return "1";
@@ -60,19 +60,17 @@ public class Menu {
     }
 
     public void displayVendingItems(Map<String, VendingMachineItem> vendingMachineMap){
-
         // create a set to hold the keys of the map
         Set<String> vendingMapKeys = vendingMachineMap.keySet();
-
         //use a for each loop to output the vending items
         for(String key: vendingMapKeys){
             System.out.println(key + vendingMachineMap.get(key).toString());
-
         }
+    }
 
-
-
-
+    public String getUserInput(){
+        String userText = userInput.nextLine().trim();
+        return userText;
     }
 
 
