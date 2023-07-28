@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class FileReader {
     private String filepath;
@@ -15,7 +16,7 @@ public class FileReader {
 
     public Map<String,VendingMachineItem> makeItemMap(String filename){
         //create an empty map
-        vendingMachineMap = new HashMap<>();
+        vendingMachineMap = new TreeMap<>();
         filepath =filename;
         // create a file based on the file path
         inputFile = new File(filepath);

@@ -45,11 +45,13 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
-				System.out.println( "Testing option one");
+//				System.out.println( "Testing option one");
+				menu.displayVendingItems( vendingMachineMap);
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				System.out.println(" Testing option two" );
 				menu.purchaseMenu();
+				break;
 
 			}
 			else{
