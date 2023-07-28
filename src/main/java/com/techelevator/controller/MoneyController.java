@@ -1,57 +1,62 @@
 package com.techelevator.controller;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class MoneyController {
 
-    private double wallet = 0.00;
+    private double wallet;
     private final double QUARTER = 0.25;
     private final double DIME = 0.10;
     private final double NICKEL = 0.05;
     private final double DOLLAR = 1.00;
 
-    public double getWallet() {
+    public double getBalance() {
         return wallet;
     }
 
+    public MoneyController() {
+        wallet = 0.00;
+    }
 
-    //ToDO method to add money
-    public double addMoney() {
+    public void addMoney() {
+        //ToDO have the input be an external argument
         Scanner userInput = new Scanner( System.in);
-        System.out.println(" Insert money");
+        System.out.println(" Insert money (whole dollar amount) ");
+        System.out.print(" $ ");
 
-        String userAmount = userInput.nextLine().trim();
+        double totalAmount = 0;
+
         try {
-
+            String userAmount = userInput.nextLine().trim();
+            int number = Integer.parseInt(userAmount);
+            totalAmount = number * DOLLAR;
+        }
+        catch( Exception e){
+            System.out.println("You did not enter whole dollar value");
+            System.out.println("System will exit now.");
+            System.exit(1);
         }
 
-        int number = Integer.parseInt(userAmount);
 
-        double totalAmount = number * DOLLAR;
         wallet += totalAmount;
 
-        System.out.println("Added money " + totalAmount + " to the wallet.");
+        System.out.print("Added $");
+        System.out.printf("%.2f", totalAmount  );
+        System.out.println(" to the balance");
+        System.out.println();
+        System.out.print("Your current balance is $" );
+        System.out.printf("%.2f", getBalance()  );
+        System.out.println();
+
+
     }
 
-    public static void main(String[] args) {
-        MoneyController moneyController = new MoneyController();
-        System.out.println("Current wallet balance: $" + moneyController.getWallet());
-        moneyController.addMoney();
-        System.out.println("Updated wallet balance: $" + moneyController.getWallet());
-    }
 
 
-
-// record user input using the scanner, make sure user only uses numbers
-        // convert user value into int
-        // multiply dollar by converter value
-        // set wallet = new amount
-
-
-    //ToDO method to make change
     public void makeChange(){
 
-        double remainingWallet = getWallet();
+        double remainingWallet = getBalance();
         int quarterCounter = 0;
         int dimeCounter = 0;
         int nickelCounter = 0;
@@ -79,12 +84,18 @@ public class MoneyController {
 
 
         System.out.printf(output + "%.2f", ( (QUARTER*quarterCounter)+ (DIME * dimeCounter) + (NICKEL * nickelCounter) ) );
-
+        wallet = 0;
 
     }
 
     public void setWallet(double wallet) {
         this.wallet = wallet;
-
     }
+
+    //ToDO a method that reduces the current wallet total
+
+
+
+
+
 }

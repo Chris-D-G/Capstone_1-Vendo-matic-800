@@ -1,5 +1,6 @@
 package com.techelevator.view;
 
+import com.techelevator.controller.MoneyController;
 import com.techelevator.model.VendingMachineItem;
 
 import java.util.Map;
@@ -13,6 +14,7 @@ public class Menu {
     private final Scanner userInput = new Scanner(System.in);
 
 
+
     //ToDO simplify the code to use the string array
     public void mainMenu() {
         System.out.println();
@@ -24,9 +26,7 @@ public class Menu {
 
     }
     public void purchaseMenu () {
-        System.out.println();
-        System.out.println("Current money provided: $ ");
-        System.out.println();
+
         System.out.println("(1) Feed Money");
         System.out.println("(2) Select Product");
         System.out.println("(3) Finish Transaction");
@@ -50,21 +50,21 @@ public class Menu {
         String purchaseChoice = userInput.nextLine().trim();
 
         if(purchaseChoice.equals("1")){
-            return "REPLACE - purchase 1";
+            return "1";
         }else if(purchaseChoice.equals("2")){
-            return "REPLACE - purchase 2";
+            return "2";
         }else{
-            return "REPLACE - purchase 3";
+            return "3";
         }
 
     }
 
     public void displayVendingItems(Map<String, VendingMachineItem> vendingMachineMap){
 
-        //ToDO create a set to hold the keys of the map
+        // create a set to hold the keys of the map
         Set<String> vendingMapKeys = vendingMachineMap.keySet();
 
-        //ToDO use a for each loop to output the vending items
+        //use a for each loop to output the vending items
         for(String key: vendingMapKeys){
             System.out.println(key+ " " +vendingMachineMap.get(key).toString());
 

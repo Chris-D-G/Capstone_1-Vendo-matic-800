@@ -16,9 +16,8 @@ public class TEST {
 //        System.out.println(testMap.get("B2").toString());
 
         MoneyController wallet = new MoneyController();
-        wallet.setWallet(5.65);
-        System.out.println(wallet.getWallet());
-        wallet.makeChange();
+        wallet.addMoney();
+//        System.out.println(wallet.getWallet());
 
 
 
