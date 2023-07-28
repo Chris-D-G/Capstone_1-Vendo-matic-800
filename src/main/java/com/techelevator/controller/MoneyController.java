@@ -57,24 +57,19 @@ public class MoneyController {
             remainingWallet = remainingWallet - (NICKEL * nickelCounter);
         }
         //Display the change to the user
-        System.out.println("Your change is: "+
-                "\n " + quarterCounter + " quarters "+
-                "\n " + dimeCounter + " dimes "+
-                "\n " + nickelCounter + " nickels " +
-                "\n " + " totaling $" +( (QUARTER*quarterCounter)+ (DIME * dimeCounter) + (NICKEL * nickelCounter) ) );
+        String output = "Your change is: "+
+                "\n " + quarterCounter + " quarter(s) "+
+                "\n " + dimeCounter + " dime(s) "+
+                "\n " + nickelCounter + " nickel(s) " +
+                "\n " + "Totaling $";
 
 
+        System.out.printf(output + "%.2f", ( (QUARTER*quarterCounter)+ (DIME * dimeCounter) + (NICKEL * nickelCounter) ) );
 
 
+    }
 
-
-
-
-
-
-
-
-
-
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
     }
 }
