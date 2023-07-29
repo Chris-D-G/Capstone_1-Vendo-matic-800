@@ -18,7 +18,7 @@ public class LogWriter {
 
         try (FileWriter writer = new FileWriter("Log.txt", true);
         PrintWriter printer = new PrintWriter (writer) ) {
-            printer.printf(dtf.format(now) + " " + action + " $%.2f" +" $ %.2f", transactionAmount ,  walletBalance);
+            printer.printf(dtf.format(now) + " " + action + " $%.2f" +" $%.2f", transactionAmount ,  walletBalance);
             printer.println();
         } catch ( IOException e) {
             System.out.println( "Error");
@@ -28,8 +28,9 @@ public class LogWriter {
         // create a print writer inside of a try - catch
         try (FileWriter writer = new FileWriter("Log.txt", true);
              PrintWriter printer = new PrintWriter (writer) ) {
-            //ToDO update the formatting so it shows 2 decimal places
-            printer.println(dtf.format(now) + " " + action + " " + vendingCode +  " $" + transactionAmount + " $" + walletBalance);
+
+            printer.printf(dtf.format(now) + " " + action +  " " + vendingCode + " $%.2f" + " $%.2f" , transactionAmount, walletBalance);
+            printer.println();
 
         } catch ( IOException e) {
             System.out.println( "Error");
