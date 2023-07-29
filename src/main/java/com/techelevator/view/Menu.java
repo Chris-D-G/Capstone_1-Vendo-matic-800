@@ -25,7 +25,7 @@ public class Menu {
             System.out.println("(" +(i+1)+") " + array[i] );
         }
         System.out.println();
-        System.out.print("Please make a selection: ");
+        System.out.print("Please make a menu selection: ");
     }
 
     public String getUserInputMainMenu () {

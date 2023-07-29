@@ -9,7 +9,7 @@ public class MoneyController {
     private final double QUARTER = 0.25;
     private final double DIME = 0.10;
     private final double NICKEL = 0.05;
-    private final double DOLLAR = 1.00;
+
 
     public double getBalance() {
         return wallet;
@@ -63,11 +63,6 @@ public class MoneyController {
 
         return output2;
     }
-
-    public void setWallet(double wallet) {
-        this.wallet = wallet;
-    }
-
 
     //a method that reduces the current wallet total
     public void subtractMoney(double amount) {

@@ -63,9 +63,7 @@ public class LogWriter {
     }
 
     //ToDO method that writes the the hidden log
-    public void writeToHiddenLog(){
 
-    }
 
 
 

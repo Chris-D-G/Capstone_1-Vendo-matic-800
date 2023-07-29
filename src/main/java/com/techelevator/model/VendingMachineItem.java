@@ -9,7 +9,7 @@ public abstract class VendingMachineItem implements Sound {
     public VendingMachineItem(String name, double price) {
         this.name = name;
         this.price = price;
-        quantity = 1;
+        quantity = 5;
     }
 
     public String getName() {

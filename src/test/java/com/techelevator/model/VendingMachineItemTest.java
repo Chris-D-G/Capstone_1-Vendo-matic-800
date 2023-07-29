@@ -9,10 +9,6 @@ public class VendingMachineItemTest {
             super(name, price);
         }
 
-        @Override
-        public String vendingSound() {
-            return "Test Sound";
-        }
     }
 
     @Test
@@ -90,14 +86,14 @@ public class VendingMachineItemTest {
     @Test
     public void testVendingSound() {
         // Arrange
-        String expectedSound = "Test Sound";
+        String expectedSound = "no sound";
         VendingMachineItem item = new TestItem("Test Candy", 1.0);
 
         // Act
         String actualSound = item.vendingSound();
 
         // Assert
-        assertEquals(expectedSound, actualSound, "Vending sound should match");
+        assertEquals( "Vending sound should match",expectedSound, actualSound);
     }
 }
 

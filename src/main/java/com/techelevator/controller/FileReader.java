@@ -88,18 +88,11 @@ public class FileReader {
                      // add the new candy to the map setting the string in position 0 of the array as the key
                      vendingMachineMap.put(items[0],crunch);
                  }
-
             }
-
-
-
-
         }catch(FileNotFoundException e){
             System.out.println("Something went wrong. See error message below");
             System.out.println(e.getMessage());
         }
-
-
         return vendingMachineMap;
     }
 
