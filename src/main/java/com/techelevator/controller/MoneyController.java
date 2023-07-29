@@ -89,17 +89,9 @@ public class MoneyController {
         this.wallet = wallet;
     }
 
-    //ToDO a method that reduces the current wallet total
 
-    public void subtractMoney(double amount){
-        if ( amount <= wallet) {
-            wallet -= amount;
-
-        } else {
-            System.out.println( "Insufficient Funds");
-        }
-
-
-
-
+    //a method that reduces the current wallet total
+    public void subtractMoney(double amount) {
+        wallet -= amount;
+    }
 }

@@ -25,19 +25,13 @@ public abstract class VendingMachineItem implements Sound {
     }
 
     public void reduceQuantity(){
-        if(quantity>0){
-        quantity-=1;
-        } else {
-            System.out.println("ITEM OUT OF STOCK!");
-        }
+       quantity-=1;
     }
 
     @Override
     public String toString() {
         return ": " + name + " | Price: " + price +" | Quantity: " + quantity;
     }
-
-
 
     @Override
     public String vendingSound() {

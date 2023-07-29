@@ -53,9 +53,13 @@ public class VendingMachineCLI {
 				menu.displayVendingItems(vendingMachineMap);
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
+
+				// this will determine if a discount is applied
+				int purchaseQTYTracker = 0;
 				//this loop will repeat until the user chooses to exit the purchase menu
 				while(true){
-					System.out.println("Current money provided: $ " + wallet.getBalance());
+					System.out.print("Current balance: $ ");
+					System.out.printf("%.2f", wallet.getBalance());
 					System.out.println();
 					menu.purchaseMenu();
 					// gets user input for the purchase menu
@@ -68,21 +72,64 @@ public class VendingMachineCLI {
 					}else if (secondChoice.equals("2")){
 						//displays the items
 						menu.displayVendingItems(vendingMachineMap);
-
+						if(purchaseQTYTracker % 2 !=0){
+							System.out.println("Your purchase will be discounted by $1");
+						}
+						//prompt the user for the vending code
 						System.out.print("Type in item code: ");
 						// get user input for the code
 						String userPurchase =  menu.getUserInput().toUpperCase();
 						//use a try - catch to prevent errors from incorrect user input
 						try{
-
 							System.out.println();
 							//checks the quantity of the items before producing the sound
-							if (vendingMachineMap.get(userPurchase).getQuantity()>0){
-								System.out.println(vendingMachineMap.get(userPurchase).vendingSound());
+							if (vendingMachineMap.get(userPurchase).getQuantity()>0 && wallet.getBalance()>0){
+								//reduces the quantity by 1 for each purchase
+								vendingMachineMap.get(userPurchase).reduceQuantity();
+
+
+								// to apply the discount, this checks to see if the previous purchase tracker is odd
+								if(purchaseQTYTracker % 2 !=0){
+
+									//this checks to see if the balance is higher the purchase cost and completes the sound output and the purchase string if the balance is higher than the purchase price
+									if(wallet.getBalance()>=vendingMachineMap.get(userPurchase).getPrice()-1){
+										//this will subtract the money from the wallet with a discount or return "Insufficient funds" if there isn't enough money
+										wallet.subtractMoney(vendingMachineMap.get(userPurchase).getPrice()-1);
+										// this will output the vending sound of the specific item
+										System.out.println(vendingMachineMap.get(userPurchase).vendingSound());
+										//prints out a message displaying what was purchases, for how much, and the balance left.
+										System.out.println("You have purchased "+ vendingMachineMap.get(userPurchase).getName()
+												+ " for $" + (vendingMachineMap.get(userPurchase).getPrice()-1)
+												+" and your remaining balance is $"  + wallet.getBalance());
+										purchaseQTYTracker++;
+									}else{
+										//if the purchase cannot be completed the following message is displayed
+										System.out.println("Insufficient Funds!");
+									}
+
+								}else{
+									if(wallet.getBalance()>=vendingMachineMap.get(userPurchase).getPrice()){
+										//subtract money from wallet at full price
+										wallet.subtractMoney(vendingMachineMap.get(userPurchase).getPrice());
+										// this will output the vending sound of the specific item
+										System.out.println(vendingMachineMap.get(userPurchase).vendingSound());
+										//prints out a message displaying what was purchases, for how much, and the balance left.
+										System.out.println("You have purchased "+ vendingMachineMap.get(userPurchase).getName()
+												+ " for $" + (vendingMachineMap.get(userPurchase).getPrice())
+												+" and your remaining balance is $"  + wallet.getBalance());
+										purchaseQTYTracker++;
+									}else{
+										//if the purchase cannot be completed the following message is displayed
+										System.out.println("Insufficient Funds!");
+									}
+								}
+
+							}else{
+								System.out.println("ITEM OUT OF STOCK! CANNOT PURCHASE!");
 							}
-							//reduces the quantity by 1 for each purchase
-							vendingMachineMap.get(userPurchase).reduceQuantity();
-							//ToDO add the ability to subtract money from wallet
+
+
+
 						}catch(Exception e){
 							System.out.println("Error. Invalid code");
 						}
