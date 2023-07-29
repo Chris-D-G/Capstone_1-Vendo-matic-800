@@ -19,34 +19,12 @@ public class MoneyController {
         wallet = 0.00;
     }
 
-    public void addMoney() {
-        //ToDO have the input be an external argument
-        Scanner userInput = new Scanner( System.in);
-        System.out.println(" Insert money (whole dollar amount) ");
-        System.out.print(" $ ");
-
-        double totalAmount = 0;
-
-        try {
-            String userAmount = userInput.nextLine().trim();
-            int number = Integer.parseInt(userAmount);
-            totalAmount = number * DOLLAR;
-        }
-        catch( Exception e){
-            System.out.println("You did not enter whole dollar value");
-            System.out.println("System will exit now.");
-            System.exit(1);
-        }
-
-
-        wallet += totalAmount;
-
+    public void addMoney(double amount) {
+        wallet += amount;
         System.out.print("Added $");
-        System.out.printf("%.2f", totalAmount  );
+        System.out.printf("%.2f", amount );
         System.out.println(" to the balance");
         System.out.println();
-
-
     }
 
 

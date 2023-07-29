@@ -10,29 +10,24 @@ import java.util.Set;
 public class Menu {
     private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
     private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
-    private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
+    private static final String MAIN_MENU_OPTION_EXIT = "Exit";
+    private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Feed Money";
+    private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select Product";
+    private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Finish Transaction";
     private final Scanner userInput = new Scanner(System.in);
 
 
 
-    //ToDO simplify the code to use the string array
-    public void mainMenu() {
-        System.out.println();
-        System.out.println("(1) Display Vending Machine Items");
-        System.out.println("(2) Purchase");
-        System.out.println("(3) Exit");
-        System.out.println();
-        System.out.print("Please make a selection: ");
 
-    }
-    public void purchaseMenu () {
-
-        System.out.println("(1) Feed Money");
-        System.out.println("(2) Select Product");
-        System.out.println("(3) Finish Transaction");
+    public void displayMenu(String[] array) {
+        System.out.println();
+        for (int i = 0; i < array.length ; i++) {
+            System.out.println("(" +(i+1)+") " + array[i] );
+        }
         System.out.println();
         System.out.print("Please make a selection: ");
     }
+
     public String getUserInputMainMenu () {
         String choice = getUserInput();
 
@@ -41,22 +36,24 @@ public class Menu {
         } else if (choice.equals("2")) {
             return MAIN_MENU_OPTION_PURCHASE;
 
-        } else {
-            return "Exit";
+        } else if(choice.equals("3")) {
+            return MAIN_MENU_OPTION_EXIT;
+        }else if (choice.equals("4")){
+            return "4";
+        }else{
+            return MAIN_MENU_OPTION_EXIT;
         }
     }
 
     public String getUserInputPurchaseMenu(){
         String purchaseChoice = getUserInput();
-
         if(purchaseChoice.equals("1")){
-            return "1";
+            return PURCHASE_MENU_OPTION_FEED_MONEY;
         }else if(purchaseChoice.equals("2")){
-            return "2";
+            return PURCHASE_MENU_OPTION_SELECT_PRODUCT;
         }else{
-            return "3";
+            return PURCHASE_MENU_OPTION_FINISH_TRANSACTION;
         }
-
     }
 
     public void displayVendingItems(Map<String, VendingMachineItem> vendingMachineMap){

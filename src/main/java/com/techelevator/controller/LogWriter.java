@@ -8,26 +8,58 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class LogWriter {
+    private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
+    private final LocalDateTime now = LocalDateTime.now();
+
+
 
     //Method that logs date time, Action, transaction amount and wallet balance
     public void writeToLog(String action, double transactionAmount, double walletBalance ){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
-        LocalDateTime now = LocalDateTime.now();
-        // create a print writer inside of a try - catch
+
         try (FileWriter writer = new FileWriter("Log.txt", true);
         PrintWriter printer = new PrintWriter (writer) ) {
-            //inside the try have it print out the same information to the log
+            printer.printf(dtf.format(now) + " " + action + " $%.2f" +" $ %.2f", transactionAmount ,  walletBalance);
+            printer.println();
+        } catch ( IOException e) {
+            System.out.println( "Error");
+        }
+    }
+    public void writePurchase(String action, String vendingCode, double transactionAmount, double walletBalance ){
+        // create a print writer inside of a try - catch
+        try (FileWriter writer = new FileWriter("Log.txt", true);
+             PrintWriter printer = new PrintWriter (writer) ) {
             //ToDO update the formatting so it shows 2 decimal places
-            printer.println(dtf.format(now) + " " + action + " $" + transactionAmount + " $" + walletBalance);
+            printer.println(dtf.format(now) + " " + action + " " + vendingCode +  " $" + transactionAmount + " $" + walletBalance);
 
         } catch ( IOException e) {
             System.out.println( "Error");
         }
-
-
-
     }
 
+
+
+
+
+    public void logStartup(){
+
+        try (FileWriter writer = new FileWriter("Log.txt", true);
+             PrintWriter printer = new PrintWriter (writer) ) {
+            printer.println("*******(SYSTEM STARTUP)*******");
+
+        } catch ( IOException e) {
+            System.out.println( "Error");
+        }
+    }
+
+    public void logShutdown(){
+
+        try (FileWriter writer = new FileWriter("Log.txt", true);
+             PrintWriter printer = new PrintWriter (writer) ) {
+            printer.println("*******(SYSTEM SHUTDOWN)*******");
+        } catch ( IOException e) {
+            System.out.println( "Error");
+        }
+    }
 
     //ToDO method that writes the the hidden log
     public void writeToHiddenLog(){
