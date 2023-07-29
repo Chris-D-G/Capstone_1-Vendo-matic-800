@@ -31,6 +31,9 @@ public class VendingMachineCLI {
 		cli.run();
 	}
 
+
+	//ToDO add logging to all of the operation in run()
+	//ToDO add J-UNIT tests to test all of the code
 	public void run() {
 		//initializes the map with the items
 		FileReader fileReader = new FileReader();
