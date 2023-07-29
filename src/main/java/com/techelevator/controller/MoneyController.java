@@ -29,7 +29,7 @@ public class MoneyController {
 
 
 
-    public void makeChange(){
+    public String makeChange(){
 
         double remainingWallet = getBalance();
         int quarterCounter = 0;
@@ -49,18 +49,19 @@ public class MoneyController {
             nickelCounter = (int) Math.floor(remainingWallet / NICKEL);
             remainingWallet = remainingWallet - (NICKEL * nickelCounter);
         }
-        //Display the change to the user
 
-        String output = "Your change is: "+
+        wallet = 0;
+
+        //Display the change to the user
+        String output1 = "Your change is: "+
                 "\n " + quarterCounter + " quarter(s) "+
                 "\n " + dimeCounter + " dime(s) "+
                 "\n " + nickelCounter + " nickel(s) " +
                 "\n " + "Totaling $";
 
+        String output2 = String.format(output1 + "%.2f", ( (QUARTER*quarterCounter)+ (DIME * dimeCounter) + (NICKEL * nickelCounter) ));
 
-        System.out.printf(output + "%.2f", ( (QUARTER*quarterCounter)+ (DIME * dimeCounter) + (NICKEL * nickelCounter) ) );
-        wallet = 0;
-
+        return output2;
     }
 
     public void setWallet(double wallet) {

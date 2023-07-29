@@ -173,7 +173,7 @@ public class VendingMachineCLI {
 						//  option 3 "Finish Transaction"
 						//	returns the change
 						logWriter.writeToLog("GIVE CHANGE: ", wallet.getBalance(), 0.00);
-						wallet.makeChange();
+						System.out.println(wallet.makeChange());
 						System.out.println();
 						// Send user back to the main menu
 						break;
