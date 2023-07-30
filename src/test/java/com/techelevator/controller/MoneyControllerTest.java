@@ -34,12 +34,12 @@ public class MoneyControllerTest {
 
     @Test
     public void test_makeChange() {
-        wallet.addMoney(15.40);
+        wallet.addMoney(15.65);
         String expected =  "Your change is: "+
-                "\n " + 61 + " quarter(s) "+
+                "\n " + 62 + " quarter(s) "+
                 "\n " + 1 + " dime(s) "+
                 "\n " + 1 + " nickel(s) " +
-                "\n " + "Totaling $15.40";
+                "\n " + "Totaling $15.65";
         String actual =  wallet.makeChange();
         System.out.println(actual);
         assertEquals(expected,actual);

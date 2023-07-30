@@ -41,12 +41,12 @@ public class MoneyController {
         remainingWallet = remainingWallet-(QUARTER * quarterCounter);
         //if greater than zero keep going and attempt dimes
         if(remainingWallet>0){
-            dimeCounter = (int) Math.floor(remainingWallet/DIME);
+            dimeCounter = (int) (remainingWallet/DIME);
             remainingWallet = remainingWallet-(DIME * dimeCounter);
         }
         //if greater than zero keep going and attempt dimes
         if(remainingWallet>0) {
-            nickelCounter = (int) Math.floor(remainingWallet / NICKEL);
+            nickelCounter = (int) Math.round(remainingWallet / NICKEL);
             remainingWallet = remainingWallet - (NICKEL * nickelCounter);
         }
 
