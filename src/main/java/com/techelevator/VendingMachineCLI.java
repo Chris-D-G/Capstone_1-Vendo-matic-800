@@ -135,6 +135,7 @@ public class VendingMachineCLI {
 										System.out.println(vendingMachineMap.get(userPurchase).vendingSound());
 										//prints out a message displaying what was purchases, for how much, and the balance left.
 										System.out.println("You have purchased "+ vendingMachineMap.get(userPurchase).getName()
+												//todo add 2f formatting
 												+ " for $" + (vendingMachineMap.get(userPurchase).getPrice()-1)
 												+" and your remaining balance is $"  + wallet.getBalance());
 										purchaseQTYTracker++;
@@ -154,6 +155,7 @@ public class VendingMachineCLI {
 										System.out.println(vendingMachineMap.get(userPurchase).vendingSound());
 										//prints out a message displaying what was purchases, for how much, and the balance left.
 										System.out.println("You have purchased "+ vendingMachineMap.get(userPurchase).getName()
+												//todo add 2f formatting
 												+ " for $" + (vendingMachineMap.get(userPurchase).getPrice())
 												+" and your remaining balance is $"  + wallet.getBalance());
 										purchaseQTYTracker++;
